@@ -29,36 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void showDialog() {
 
-        final AlertDialog.Builder builder=new AlertDialog.Builder(this);
-
-        builder.setTitle("Age selection");
-
-        builder.setMessage("Are you an adult?");
-
-        builder.setCancelable(false);
-
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this, "Done...", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(MainActivity.this, "No...", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        builder.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                builder.create().dismiss();
-            }
-        });
-
-        builder.show();
+        FragmentAlertDialog alertDialog=new FragmentAlertDialog();
+        alertDialog.setCancelable(false);
+        alertDialog.show(getSupportFragmentManager(),"FragmentAlerDialog");
 
     }
 }
