@@ -12,6 +12,7 @@ import android.widget.Toast;
 public class FragmentAlertDialog extends DialogFragment {
 
     public static final String TAG = "TAG";
+    private final String[] mColors={"Red","Green","Blue","Yellow"};
 
     @NonNull
     @Override
@@ -19,9 +20,22 @@ public class FragmentAlertDialog extends DialogFragment {
 
         final AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
 
-        builder.setTitle("Age selection");
+        builder.setTitle("Pick Color");
 
-        builder.setMessage("Are you an adult?");
+        builder.setMultiChoiceItems(mColors, new boolean[]{true,false,false,true}, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                if(b){
+                    //add item to selected items list
+                    Log.d(TAG, "onClick: Added: "+mColors[i]);
+                }else{
+                    //if the item is in selected items list
+                    //remove it from the list
+                    Log.d(TAG, "onClick: Removed: "+mColors[i]);
+                }
+
+            }
+        });
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override

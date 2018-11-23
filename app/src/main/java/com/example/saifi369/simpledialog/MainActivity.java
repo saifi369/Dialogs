@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public void showDialog() {
 
         FragmentAlertDialog alertDialog=new FragmentAlertDialog();
-        alertDialog.setCancelable(false);
+//        alertDialog.setCancelable(false);
         alertDialog.show(getSupportFragmentManager(),"FragmentAlerDialog");
 
     }
